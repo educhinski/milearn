@@ -1,3 +1,6 @@
 # milearn
 
-My learning repo --html
+My learning repo 
+
+  - Python
+  - HTML/CSS

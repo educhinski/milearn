@@ -263,4 +263,10 @@ main {
 
 .color {
   color: var(--clr-primary-5);
+  text-transform: lowercase;
+}
+
+#btn:active {
+  opacity: 0.4;
+  background: #0000005e;
 }

@@ -263,7 +263,7 @@ main {
 
 .color {
   color: var(--clr-primary-5);
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 #btn:active {

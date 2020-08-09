@@ -10,6 +10,13 @@ btn.addEventListener('click', function () {
 
     document.body.style.backgroundColor = colors[randomNumber];
     color.textContent = colors[randomNumber];
+    console.log(color.textContent);
+    if (color.textContent[0] !== '#') {
+        color.style.textTransform = 'lowercase';
+    }
+    else {
+        color.style.textTransform = 'uppercase';
+    }
 });
 
 function getRandomNumber() {

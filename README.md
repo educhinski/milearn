@@ -1,3 +1,7 @@
 # milearn
 
-My learning repo --Javascript
+My learning repo
+
+* Python
+* HTML/CSS
+* Javascript

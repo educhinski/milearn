@@ -1,0 +1,217 @@
+/* universal */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* id */
+#main {
+  width: 640px;
+  margin: 0 auto;
+  background: #eeeeee;
+}
+
+/* class */
+.mysect {
+  width: 80%;
+  margin: 20px auto;
+  background: #e1e1e1;
+}
+
+/* descendant */
+.mysect ul {
+  margin: 5px 15px;
+}
+
+/* element */
+li {
+  list-style-type: none;
+}
+
+/* :link pseudo class */
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: purple;
+}
+
+/* adjacent - first only */
+h2+p {
+  font: 500 1.2em/1.5 "Open Sans", sans-serif;
+}
+
+/* children */
+main>ol {
+  list-style-type: none;
+}
+
+/* sibling combinator */
+section~ul {
+  background: red;
+}
+
+/* attributes */
+a[title] {
+  color: green;
+}
+
+/* specific link */
+a[href="https://mywebsite.com"] {
+  color: #1f6053;
+}
+
+/* link with attribute containing 'men' */
+a[href*="men"] {
+  color: #1f0698;
+}
+
+/* links beginning with 'http' */
+/* cinch with carat symbol */
+a[href^="http"] {
+  background: url(/path/to/icon.png);
+  padding-left: 10px;
+}
+
+/* links ending with '.jpg' */
+a[href$=".jpg"] {
+  color: aqua;
+}
+
+/* custom attribute */
+/* a[data-*="foo"] */
+a[data-filetype="image"] {
+  color: red;
+}
+
+/* space-separated list */
+/* tilda */
+/* Target dat-info attr that contains the value "external */
+a[data-info~="external"] {
+  color: cadetblue;
+}
+
+/* And which contain the value "image" */
+a[data-info~="image"] {
+  border: 2px solid coral;
+}
+
+/* checked */
+input[type="radio"]:checked {
+  border: 1px solid darkturquoise;
+}
+
+/* before/after pseudo classes */
+/* generate content around selected elements */
+/* should be used with ::, single just for compatibility */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+.clearfix {
+  *display: inline-block;
+}
+
+/* user action */
+a:hover {
+  background: #e3e3e3;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+/* negation */
+div:not(#container) {
+  color: blue;
+}
+
+/* pseudo element (::) */
+/* fragements of elements */
+p::first-letter {
+  float: left;
+  font: bold 1.2em cursive;
+  padding-right: 2px;
+}
+
+.content::first-line {
+  font: bold 1.2em sans-serif;
+}
+
+/* child (specific element in a stack */
+li:nth-child(3n) {
+  color: #727272;
+}
+
+/* child (starting from the last) */
+li:nth-last-child(2) {
+  text-decoration: underline;
+}
+
+/* child, according to type of element */
+ol:nth-of-type(3) {
+  border: 2px solid coral;
+}
+
+/* child, according to type of element, starting from last  */
+ol:nth-last-of-type(27) {
+  border: 2px solid chartreuse;
+}
+
+/* structural pseudo class - first child only */
+ul li:first-child {
+  border: 1px solid burlywood;
+}
+
+/* last child only */
+ul > li:last-child {
+  border: 1px solid salmon;
+}
+
+/* small sample */
+ol:nth-of-type(1) ul,
+ol:nth-of-type(2) ul {
+  width: 200px;
+  background: #292929;
+  color: #fff;
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+  /* margin: 10px auto; */
+}
+
+ol:nth-of-type(1) li,
+ol:nth-of-type(2) li {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid #3c3c3c;
+  border-width: 1px 0 1px;
+}
+
+ol:nth-of-type(1) li:first-child {
+  border-top: none;
+}
+
+ol:nth-of-type(2) li:last-child {
+  border-bottom: none;
+}
+
+/* only child */
+div p:only-child {
+  color: red;
+}
+
+/* elements that do not have siblings within its parent container */
+/* only child */
+ul > li:only-of-type {
+  font-weight: bold;
+}
+
+/* first sibling of its type */
+.try ul:first-of-type li:last-of-type {
+  background: red;
+}

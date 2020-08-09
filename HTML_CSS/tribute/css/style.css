@@ -1,0 +1,88 @@
+body {
+    min-width: 400px;
+    margin: 0 10%;
+    font-family: 'PT Sans';
+}
+
+#main {
+    text-align: center;
+    border-bottom: 1px solid #69696971;
+}
+
+#title {
+    margin-bottom: 0;
+    font-size: 28px;
+}
+
+#main header,
+#main blockquote {
+    letter-spacing: 1px;
+}
+
+#main header h2 {
+    margin-top: 8px;
+}
+
+#main header em,
+#main blockquote {
+    font-family: "Raleway";
+}
+
+#main blockquote {
+    margin-top: 30px;
+    font-style: italic;
+    line-height: 1.4em;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+#main blockquote p {
+    position: relative;
+    margin-left: 30px;
+}
+
+#main blockquote p:before {
+    content: "“";
+    font-family: 'Times New Roman', 'Apple Garamond', serif;
+    position: absolute;
+    top: 0;
+    left: -15px;
+}
+
+#main blockquote p:after {
+    content: "”";
+    font-family: 'Times New Roman', 'Apple Garamond', serif;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#main cite,
+#my_footer {
+    font-style: normal;
+    color: #696969;
+}
+
+#tribute-info {
+    text-align: left;
+    line-height: 1.8em;
+}
+
+#img-div {
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+}
+
+#img {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    min-width: 200px;
+    margin-bottom: 5px;
+}
+
+#my_footer p {
+    margin: 8px;
+    padding: 2px;
+}

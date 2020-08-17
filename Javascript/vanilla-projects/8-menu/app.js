@@ -86,45 +86,8 @@ const btnContainer = document.querySelector('.btn-container');
 
 // load items
 window.addEventListener('DOMContentLoaded', function () {
-  setTimeout(() => {
-    displayMenuItems(menu);
-  }, 2000);
-  // displayMenuItems(menu);
-  const categories = menu.reduce(function (values, item) {
-    if (!values.includes(item.category)) {
-      values.push(item.category);
-    }
-    return values;
-  }, ['all']);
-  const categoryBtns = categories.map(function (category) {
-    return `
-    <button type="button" class="filter-btn" 
-      data-id="${category}">${category}</button>`;
-  }).join('');
-  console.log(categoryBtns);
-  btnContainer.innerHTML = categoryBtns;
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  // filter items
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      // get category from dataset
-      const category = e.currentTarget.dataset.id;
-
-      // filter menu items using category
-      const menuCategory = menu.filter(function (menuItem) {
-        if (menuItem.category === category) {
-          return menuItem;
-        }
-      });
-
-      // display items corresponding to category
-      if (category === 'all') {
-        displayMenuItems(menu);
-      } else {
-        displayMenuItems(menuCategory);
-      }
-    });
-  });
+  displayMenuItems(menu);
+  displayFilterBtns();
 });
 
 function displayMenuItems(menuItems) {
@@ -146,4 +109,49 @@ function displayMenuItems(menuItems) {
   });
   displayMenu = displayMenu.join('');
   sectionCenter.innerHTML = displayMenu;
+}
+
+function displayFilterBtns() {
+  // creates and displays filter btns in the page dynamically
+
+  // get unique categories only
+  const categories = menu.reduce(function (values, item) {
+    if (!values.includes(item.category)) {
+      values.push(item.category);
+    }
+    return values;
+  }, ['all']);
+
+  // create markup for each button
+  const categoryBtns = categories.map(function (category) {
+    return `
+    <button type="button" class="filter-btn" 
+      data-id="${category}">${category}</button>`;
+  }).join('');
+
+  // append the buttons to the page
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = btnContainer.querySelectorAll('.filter-btn');
+
+  // filter items to be displayed
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      // get category from dataset
+      const category = e.currentTarget.dataset.id;
+
+      // filter menu items using category
+      const menuCategory = menu.filter(function (menuItem) {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+
+      // display items corresponding to category
+      if (category === 'all') {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
+      }
+    });
+  });
 }

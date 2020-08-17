@@ -71,35 +71,59 @@ const menu = [
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 10,
+    title: "steak dinner",
+    category: "dinner",
+    price: 39.99,
+    img: "./images/item-10.jpeg",
+    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+  },
 ];
 
 const sectionCenter = document.querySelector('.section-center');
-const filterBtns = document.querySelectorAll('.filter-btn');
+const btnContainer = document.querySelector('.btn-container');
 
 // load items
 window.addEventListener('DOMContentLoaded', function () {
-  displayMenuItems(menu);
-});
+  setTimeout(() => {
+    displayMenuItems(menu);
+  }, 2000);
+  // displayMenuItems(menu);
+  const categories = menu.reduce(function (values, item) {
+    if (!values.includes(item.category)) {
+      values.push(item.category);
+    }
+    return values;
+  }, ['all']);
+  const categoryBtns = categories.map(function (category) {
+    return `
+    <button type="button" class="filter-btn" 
+      data-id="${category}">${category}</button>`;
+  }).join('');
+  console.log(categoryBtns);
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  // filter items
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      // get category from dataset
+      const category = e.currentTarget.dataset.id;
 
-// filter items
-filterBtns.forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
-    // get category from dataset
-    const category = e.currentTarget.dataset.id;
+      // filter menu items using category
+      const menuCategory = menu.filter(function (menuItem) {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
 
-    // filter menu items using category
-    const menuCategory = menu.filter(function (menuItem) {
-      if (menuItem.category === category) {
-        return menuItem;
+      // display items corresponding to category
+      if (category === 'all') {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
       }
     });
-
-    // display items corresponding to category
-    if (category === 'all') {
-      displayMenuItems(menu);
-    } else {
-      displayMenuItems(menuCategory);
-    }
   });
 });
 

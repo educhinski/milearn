@@ -59,7 +59,6 @@ h1 {
 }
 
 /* switch button */
-
 .switch-btn {
   position: absolute;
   bottom: 7%;
@@ -100,7 +99,7 @@ h1 {
 }
 
 /* header after */
-/* header::after {
+header::after {
   content: "";
   position: absolute;
   top: 0;
@@ -109,4 +108,4 @@ h1 {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   z-index: -1;
-} */
+}

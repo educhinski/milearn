@@ -28,6 +28,7 @@ html {
 
 /* section */
 .section {
+  padding: 0;
   padding-bottom: 5rem;
 }
 

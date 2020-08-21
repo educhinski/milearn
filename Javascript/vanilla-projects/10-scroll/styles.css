@@ -14,6 +14,23 @@ html {
   scroll-behavior: smooth;
 }
 
+.btn-white {
+  color: var(--clr-white);
+  border-color: var(--clr-white);
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+}
+
+.btn:hover {
+  background: var(--clr-white);
+  color: var(--clr-secondary);
+}
+
+/* section */
+.section {
+  padding-bottom: 5rem;
+}
+
 /* navbar */
 nav {
   background: var(--clr-white);
@@ -216,7 +233,6 @@ footer p {
   border-radius: var(--radius);
   color: var(--clr-white);
   animation: bounce 2s ease-in-out infinite;
-
   visibility: hidden;
   z-index: -100;
 }
